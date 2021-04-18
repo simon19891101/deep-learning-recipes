@@ -70,6 +70,7 @@ build_model <- function(n_user, n_item, n_factor) {
   # define model inputs/outputs
   model <- keras_model(
     inputs = c(input_user, input_item_positive, input_item_negative),
+    # normally we would expect output as y_pred but here it is a loss directly.
     outputs = loss
   )
 
