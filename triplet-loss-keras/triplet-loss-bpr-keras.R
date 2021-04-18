@@ -24,6 +24,7 @@ loss_bpr_triplet <- function(x) {
   embed_item_positive <- x[[2]]
   embed_item_negative <- x[[3]]
 
+  # the 1.0 here is the peudo y_true for BPR ranking loss. This is same as LambdaRank
   loss <- 1.0 - k_sigmoid(
     k_sum(embed_user * embed_item_positive, axis = -1, keepdims = TRUE) -
       k_sum(embed_user * embed_item_negative, axis = -1, keepdims = TRUE)
