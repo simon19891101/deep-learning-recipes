@@ -15,6 +15,7 @@ use_virtualenv("~/tensorflow/venv/")
 # identity loss: workaround Keras loss definition to use custom triplet loss
 # there is no true label: we just want to minimize the BPR triplet loss
 # to learn the embeddings
+# the idea is to implement BRP loss as y_pred and omit y_true.
 loss_identity <- function(y_true, y_pred) k_mean(y_pred - 0 * y_true)
 
 # BPR triplet loss
